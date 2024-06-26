@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title of the HTML document -->
+    <title>DOM | Javascript Curated</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <!-- Main container div with class 'parent' -->
+    <div class="parent">
+        <!-- this is a comment -->
+        <div class="day">Monday</div> <!-- Child div representing Monday -->
+        <div class="day">Tuesday</div> <!-- Child div representing Tuesday -->
+        <div class="day">Wednesday</div> <!-- Child div representing Wednesday -->
+        <div class="day">Thursday</div> <!-- Child div representing Thursday -->
+    </div>
+</body>
+<script>
+    // Selecting the parent div with class 'parent'
+    const parent = document.querySelector('.parent');
+    // Uncomment to log the parent element
+    // console.log(parent);
+    // Uncomment to log the child elements of the parent
+    // console.log(parent.children);
+    // Uncomment to log the innerHTML of the second child element
+    // console.log(parent.children[1].innerHTML);
+
+    // Loop through each child element and log its innerHTML
+    // for (let i = 0; i < parent.children.length; i++) {
+    //      console.log(parent.children[i].innerHTML);
+    // }
+
+    // Change the color of the second child element to orange
+    parent.children[1].style.color = "orange";
+    // Uncomment to log the first child element
+    // console.log(parent.firstElementChild);
+    // Uncomment to log the last child element
+    // console.log(parent.lastElementChild);
+
+    // Selecting the first element with class 'day'
+    const dayOne = document.querySelector('.day');
+    // Uncomment to log the first 'day' element
+    // console.log(dayOne);
+    // Uncomment to log the parent element of the first 'day' element
+    // console.log(dayOne.parentElement);
+    // Uncomment to log the next sibling element of the first 'day' element
+    // console.log(dayOne.nextElementSibling);
+
+    // Log all child nodes of the parent element
+    console.log("NODES: ", parent.childNodes);
+</script>
+</html>
