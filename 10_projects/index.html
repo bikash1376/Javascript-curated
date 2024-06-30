@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: #212121;
+        color: whitesmoke;
+        height: 100vh;
+      }
+      .container {
+        display: flex;
+        height: 50vh;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+      }
+      button {
+        border-radius: 20px;
+        border: 2px solid transparent;
+      }
+      a {
+        background-color: #212121;
+        /* color: whitesmoke; */
+        padding: 10px 20px;
+        border-radius: 20px;
+  
+      }
+      button:hover {
+        transition: 1s;
+        border: 2px solid blue;
+        cursor: pointer;
+      }
+      a {
+        text-decoration: none;
+        font-size: 18px;
+      }
+
+
+
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <button class="glow-on-hover"><a href="bgChanger.html">Background Changer</a></button>
+      <button class="animated-button"><a href="bmiCalculator.html">BMI Calculator</a></button>
+      <button class="animated-button"><a href="expenseTracker.html">Expense Tracker</a></button>
+      <button class="animated-button"><a href="digitalClock.html">Digital Clock</a></button>
+      <button class="animated-button"><a href="numberGuessingGame.html">Number Guessing game</a></button>
+    </div>
+  </body>
+</html>

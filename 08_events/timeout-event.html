@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Specifies the character encoding for the HTML document -->
+    <meta charset="UTF-8">
+    <!-- Sets the viewport to make the website look good on all devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Sets the title of the web page -->
+    <title>Document</title>
+</head>
+<body>
+    <!-- Main heading of the page -->
+    <h1>Chai aur code</h1>
+    <!-- Button to stop the timeout -->
+    <button id="stop">Stop</button>
+</body>
+<script>
+    // Function to log "Hitesh" to the console
+    const sayHitesh = function(){
+        console.log("Hitesh");
+    }
+
+    // Function to change the text of the h1 element
+    const changeText = function(){
+        document.querySelector('h1').innerHTML = "best JS series";
+    }
+
+    // Set a timeout to change the text of the h1 element after 2 seconds
+    const changeMe = setTimeout(changeText, 2000);
+
+    // Add an event listener to the stop button
+    document.querySelector('#stop').addEventListener('click', function(){
+        // Clear the timeout when the stop button is clicked
+        clearTimeout(changeMe);
+        // Log "STOPPED" to the console
+        console.log("STOPPED");
+    });
+</script>
+</html>

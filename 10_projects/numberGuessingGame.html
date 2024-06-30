@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Number Guessing Game</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #212121;
+      }
+      .container {
+        text-align: center;
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        margin-bottom: 20px;
+        color: rgba(0, 0, 0, 0.509);
+      }
+      input[type="text"] {
+        padding: 10px;
+        width: 80%;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: rgb(255, 255, 255);
+        font-size: 16px;
+        cursor: pointer;
+      }
+      .guess:hover {
+        background-color: #0056b3;
+      }
+      @media (max-width: 600px) {
+        input[type="text"] {
+          width: 100%;
+        }
+      }
+      h2, h3 {
+        display: block;
+      }
+      h3 {
+        color: green;
+      }
+      span {
+        background-color: white;
+        cursor: pointer;
+      }
+      .restart {
+        background-color: #059669;
+      }
+      .restart:hover {
+        background-color: rgba(5, 79, 5, 0.854);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Number Guessing Game</h1>
+      <h2>Guess in the input below</h2>
+      <h3>‎</h3>
+      <form>
+        <input type="text" name="" id="guessInput"/>
+        <button class="guess" type="submit">Submit</button>
+      </form>
+      <p>You've <span id="count">10</span> attempts left !! 😶‍🌫️</p>
+      <button class="restart" onclick="restart()">Restart</button>
+    </div>
+
+    <script>
+      const form = document.querySelector("form");
+      const input = document.querySelector("#guessInput");
+      const h2 = document.querySelector("h2");
+      const cheat = document.querySelector("span");
+      const h3 = document.querySelector("h3");
+      const count = document.getElementById("count");
+      let attemptsLeft = parseInt(count.innerText);
+      const buttonEl = document.querySelector('button');
+      const random = Math.floor(Math.random() * 100) + 1;
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const guess = parseInt(input.value);
+        if (isNaN(guess)) {
+          alert("Please enter a valid number");
+        } else if (guess < 0 || guess > 100) {
+          alert("Please enter a number between 0 and 100");
+        } else {
+          attemptsLeft--;
+          count.innerText = attemptsLeft;
+          if (attemptsLeft <= 0 && guess !== random) {
+            h2.innerText = "You've lost the game 😢";
+            h3.innerText = "The number was " + random + "🐸";
+            buttonEl.disabled = true;
+            return;
+          }
+          if (guess === random) {
+            h2.innerText = "You win! 🎉";
+            input.disabled = true;
+          } else if (guess > random) {
+            h2.innerText = "Too high! 🙄";
+            input.value = '';
+          } else if (guess < random) {
+            h2.innerText = "Too low! 🤨";
+            input.value = '';
+          }
+        }
+      });
+
+
+      function restart() {
+        location.reload(true);
+      }
+    </script>
+  </body>
+</html>
